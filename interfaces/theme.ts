@@ -1,4 +1,4 @@
 export default interface ThemeInterface {
-    primaryColor: string;
-    primaryColorInverted: string;
+  primaryColor: string;
+  primaryColorInverted: string;
 }
