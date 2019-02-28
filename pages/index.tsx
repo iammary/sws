@@ -1,14 +1,14 @@
 import * as React from 'react'
-import Link from 'next/link'
 import Layout from '../components/Layout'
 
 const IndexPage: React.FunctionComponent = () => {
-  return (
-    <Layout title="Home | Next.js + TypeScript Example">
-      <h1>Hello Next.js 👋</h1>
-      <p><Link href='/about'><a>About</a></Link></p>
-    </Layout>
-  )
+    return (
+        <Layout title="The Grid in Next.js + TypeScript | Simply Wall St">
+            <h1>High Growth Potential</h1>
+            <h3>Companies that analysts expect to have high earnings, revenue or cash flow growth in the next 3
+                years.</h3>
+        </Layout>
+    )
 }
 
 export default IndexPage;
