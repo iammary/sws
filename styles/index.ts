@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyle} from './styled-components';
 import theme from './theme';
 import styled from 'styled-components';
 
