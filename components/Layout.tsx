@@ -14,12 +14,16 @@ const Layout: React.FunctionComponent<Props> = ({children, title = 'The Grid | S
       <title>{title}</title>
       <meta charSet='utf-8'/>
       <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css" rel="stylesheet" />
     </Head>
-    <Header>
-      <Link href='/'><img src="/static/logo.png" alt="Simply Wall St logo"/></Link>
-    </Header>
     <Normalize/>
     <GlobalStyle/>
+    <div className="container">
+      <Header>
+        <Link href='/'><img src="/static/logo.png" alt="Simply Wall St logo"/></Link>
+      </Header>
+    </div>
     {children}
     <footer>
       <hr/>
