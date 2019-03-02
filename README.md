@@ -1,31 +1,16 @@
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zeit/next.js/tree/master/examples/with-typescript)
-
-# TypeScript Next.js example
+# The Grid | Simply Wall St
 
 This is a really simple project that show the usage of Next.js with TypeScript.
 
-## How to use it?
+### Tech stack
 
-### Using `create-next-app`
+- **React** - frontend/view library
+- **NextJS** - react framework
+- **Typescript** 
 
-Execute [`create-next-app`](https://github.com/segmentio/create-next-app) with [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) or [npx](https://github.com/zkat/npx#readme) to bootstrap the example:
+### Setup and Run
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-```
-
-### Download manually
-
-Download the example:
-
-```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-typescript
-cd with-typescript
-```
-
-Install it and run:
+- `$ git clone https://github.com/iammary/sws.git && cd sws` will download the app and cd to the folder once done.
 
 ```bash
 npm install
@@ -35,8 +20,47 @@ yarn
 yarn dev
 ```
 
-## The idea behind the example
+### Questions
 
-Use the [@zeit/next-typescript](https://github.com/zeit/next-plugins/tree/master/packages/next-typescript) plugin to inject [@babel/preset-typescript](https://github.com/babel/babel/tree/master/packages/babel-preset-typescript) into Next.js, allowing for fast TypeScript transpilation. It also implements a `tsconfig.json` as recommended by [the @zeit/next-typescript plugin page](https://github.com/zeit/next-plugins/tree/master/packages/next-typescript/#readme).
+- packages/libraries used.
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this in your `test` scripts, say, for your CI process.
+  - [react-loadable](https://github.com/jamiebuilds/react-loadable) - A higher order component for loading components with dynamic imports.
+  - [react](https://facebook.github.io/react/) - awesome view library
+  - [react-router](https://github.com/ReactTraining/react-router) - for routing
+  - [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate/) - A highly scalable, offline-first foundation with the best developer experience and a focus on performance and best practices.
+  - [styled components](https://www.styled-components.com/) - Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS, styled-components allows you to write actual CSS code to style your components.
+
+- Structure for the project
+
+  - Top Level
+
+  ```
+  app
+  │
+  │
+  ├── components  <--- stateless components
+  │   ├── Button
+  │   │   ├── css.js <-- styled component
+  │   │   └── index.js
+  │   │
+  │
+  ├── containers <--- stateful components/route components
+  │   ├── App
+  │   │   ├── index.js
+  │   │   └── logo.png
+  │   │
+  │   ├── HomePage
+  │   │   ├── index.js
+  │   │   └── tests
+  │   │       └── index.test.js
+  │   │
+  │   └──NotFoundPage
+  │       └── index.js
+  │
+  │
+  ├── index.html
+  ├── routes.js
+  ├── manifest.json
+  ├── configureStore.js
+  └── app.js
+  ```
