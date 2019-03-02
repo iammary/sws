@@ -1,27 +1,16 @@
 import * as React from 'react';
 import TheGridItem from './TheGridItem';
-import StockObject from '../interfaces';
+import { GridState } from '../interfaces';
 import InfiniteScroll from 'react-infinite-scroller';
+import { API_URL } from '../utils';
 
 const __DEBUG__ = process.env.NODE_ENV === 'development';
-const SIZE      = 100;
-const API_URL   = 'https://simplywall.st/api/grid/filter?include=info%2Cscore';
+const SIZE      = 9;
 
-interface TGState {
-  offset: number;
-  isLastFetch: boolean;
-  loading: boolean;
-  stocks: Array<StockObject>;
-}
+class TheGrid extends React.Component<any, GridState> {
+  state: GridState;
 
-interface TGProps {
-  // your props
-}
-
-class TheGrid extends React.Component<TGProps, TGState> {
-  state: TGState;
-
-  constructor ( props: TGProps ) {
+  constructor ( props: any ) {
     super( props );
     this.state = {
       offset      : 0,
@@ -32,7 +21,6 @@ class TheGrid extends React.Component<TGProps, TGState> {
   }
 
   public loadItems = () => {
-    __DEBUG__ && console.log( 'this.state: %o', this.state );
     __DEBUG__ && console.log( 'Fetching Data offset: %o', this.state.offset );
 
     fetch( API_URL, {
@@ -55,7 +43,9 @@ class TheGrid extends React.Component<TGProps, TGState> {
       } )
     } ).then( r => r.json() ).then( res => {
       __DEBUG__ && console.log( 'res: %o', res );
+
       const NEXT_OFFSET = this.state.offset + SIZE;
+
       this.setState( {
         stocks      : this.state.stocks.concat( res.data ),
         offset      : NEXT_OFFSET,
@@ -69,8 +59,6 @@ class TheGrid extends React.Component<TGProps, TGState> {
   }
 
   render () {
-    __DEBUG__ && console.log( 'this.state.stocks: %o', this.state.stocks );
-
     if ( !this.state.stocks.length ) {
       return <div className="container">Loading</div>;
     }
@@ -82,7 +70,7 @@ class TheGrid extends React.Component<TGProps, TGState> {
           className="row"
           loadMore={ this.loadItems }
           hasMore={ this.state.isLastFetch }
-          loader={ <div className="loader">Loading ...</div> }
+          loader={ <div className="loader" key={0} >Loading ...</div> }
           useWindow={ true }>
           { this.state.stocks.map( ( stock, i ) => <TheGridItem stock={ stock } key={ i }/> ) }
         </InfiniteScroll>
