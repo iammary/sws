@@ -12,12 +12,19 @@ export const CHART_OPTIONS = {
   },
   scale      : {
     gridLines : {
-      circular : true
+      circular  : true,
+      color     : 'rgba(0, 0, 0, 0.1)',
+      lineWidth : 14
+    },
+    pointLabels : {
+      fontColor: '#FFFFFF',
+      fontSize: 8
     },
     ticks     : {
       display     : false,
       beginAtZero : true,
-      max         : 6
+      max         : 6,
+      stepSize    : 2
     }
   }
 };
