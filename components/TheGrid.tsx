@@ -3,7 +3,7 @@ import TheGridItem from './TheGridItem';
 import { GridState } from '../interfaces';
 import * as InfiniteScroll from 'react-infinite-scroller';
 import Loader from './Loader';
-import fetch from 'unfetch';
+import fetch from 'isomorphic-unfetch'
 
 const SIZE      = 9;
 const API_URL = 'https://simplywall.st/api/grid/filter?include=info%2Cscore'
