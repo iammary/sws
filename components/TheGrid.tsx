@@ -3,10 +3,11 @@ import TheGridItem from './TheGridItem';
 import { GridState } from '../interfaces';
 import * as InfiniteScroll from 'react-infinite-scroller';
 import Loader from './Loader';
-import fetch from 'isomorphic-unfetch'
+import * as fetchImport from 'isomorphic-unfetch'
+const fetch = (fetchImport.default || fetchImport) as typeof fetchImport.default
 
 const SIZE      = 9;
-const API_URL = 'https://simplywall.st/api/grid/filter?include=info%2Cscore'
+const API_URL = 'https://simplywall.st/api/grid/filter?include=info%2Cscore';
 
 class TheGrid extends React.Component<any, GridState> {
   state: GridState;

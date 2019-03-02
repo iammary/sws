@@ -2,13 +2,14 @@
   "name": "with-typescript",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next",
     "build": "next build",
     "start": "next start -p 8000",
     "type-check": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "now-build": "next build"
   },
   "dependencies": {
     "@types/react-infinite-scroller": "^1.2.1",

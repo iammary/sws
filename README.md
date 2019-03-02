@@ -1,11 +1,13 @@
 # The Grid | Simply Wall St
 
-This is a really simple project that show the usage of Next.js with TypeScript.
+This is a really simple project that shows the usage of Next.js with TypeScript.
+
+Live demo: [zeit: now](https://sws-85t7nomy6.now.sh/)
 
 ### Tech stack
 
 - **React** - frontend/view library
-- **NextJS** - react framework
+- **[NextJS](https://github.com/zeit/next.js)** - react framework, supports SSR
 - **Typescript** 
 
 ### Setup and Run
@@ -20,47 +22,20 @@ yarn
 yarn dev
 ```
 
-### Questions
+### Packages and Libraries
 
-- packages/libraries used.
+- [isomorphic-unfetch](https://github.com/developit/unfetch/tree/master/packages/isomorphic-unfetch) - simple implementation of the browser  API, but works both in client and server environments.
+- [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate/) - A highly scalable, offline-first foundation with the best developer experience and a focus on performance and best practices.
+- [styled components](https://www.styled-components.com/) - Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS, styled-components allows you to write actual CSS code to style your components.
+- [react-infinite-scroller](https://github.com/CassetteRocks/react-infinite-scroller) - Infinitely load content using a React Component.
+- [react-chartjs-2](https://github.com/jerairrest/react-chartjs-2) - React wrapper for Chart.js 2 
+- [react-content-loader](https://github.com/danilowoz/react-content-loader) - SVG-Powered component to easily create placeholder loadings (like Facebook's cards loading).
 
-  - [react-loadable](https://github.com/jamiebuilds/react-loadable) - A higher order component for loading components with dynamic imports.
-  - [react](https://facebook.github.io/react/) - awesome view library
-  - [react-router](https://github.com/ReactTraining/react-router) - for routing
-  - [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate/) - A highly scalable, offline-first foundation with the best developer experience and a focus on performance and best practices.
-  - [styled components](https://www.styled-components.com/) - Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS, styled-components allows you to write actual CSS code to style your components.
 
-- Structure for the project
+### Test
 
-  - Top Level
-
-  ```
-  app
-  │
-  │
-  ├── components  <--- stateless components
-  │   ├── Button
-  │   │   ├── css.js <-- styled component
-  │   │   └── index.js
-  │   │
-  │
-  ├── containers <--- stateful components/route components
-  │   ├── App
-  │   │   ├── index.js
-  │   │   └── logo.png
-  │   │
-  │   ├── HomePage
-  │   │   ├── index.js
-  │   │   └── tests
-  │   │       └── index.test.js
-  │   │
-  │   └──NotFoundPage
-  │       └── index.js
-  │
-  │
-  ├── index.html
-  ├── routes.js
-  ├── manifest.json
-  ├── configureStore.js
-  └── app.js
-  ```
+```bash
+npm run test
+npm run test:watch
+npm run test:coverage
+```

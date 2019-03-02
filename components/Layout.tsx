@@ -17,6 +17,7 @@ const Layout: React.FunctionComponent<Props> = ( { children, title = 'The Grid |
       <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"/>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css"
             rel="stylesheet"/>
+      <link rel="icon" type="image/x-icon" href="../static/favicon.ico" />
     </Head>
     <Normalize/>
     <GlobalStyle/>
@@ -28,7 +29,7 @@ const Layout: React.FunctionComponent<Props> = ( { children, title = 'The Grid |
       <div className="container">
         <div className="row">
           <div className="col">
-            ❤️ Submitted by Jes Anub
+            ❤️ Submitted by <a href="http://www.jes.ph/" target="_blank">Jes Anub</a>
           </div>
         </div>
       </div>
