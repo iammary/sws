@@ -19,14 +19,14 @@ class TheGridItem extends React.Component<IProps> {
     const info      = stock.info.data;
 
     __DEBUG__ && console.log( 'stock: %o', stock );
-    
+
     return (
       <div className="col-lg-4 col-sm-6">
         <StockBox>
           <h2>{ stock.name }</h2>
           <div>
             <Radar
-              height={ 350 }
+              height={ 300 }
               data={ {
                 labels   : [ 'VALUE', 'FUTURE', 'PAST', 'HEALTH', 'DIVIDEND' ],
                 datasets : [ {

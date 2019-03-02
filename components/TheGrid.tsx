@@ -3,6 +3,7 @@ import TheGridItem from './TheGridItem';
 import { GridState } from '../interfaces';
 import InfiniteScroll from 'react-infinite-scroller';
 import { API_URL } from '../utils';
+import Loader from './Loader';
 
 const __DEBUG__ = process.env.NODE_ENV === 'development';
 const SIZE      = 9;
@@ -59,8 +60,16 @@ class TheGrid extends React.Component<any, GridState> {
   }
 
   render () {
+    const MyLoader = <div className="container">
+      <div className="row">
+        <div className="col-lg-4 col-sm-6"><Loader/></div>
+        <div className="col-lg-4 col-sm-6"><Loader/></div>
+        <div className="col-lg-4 col-sm-6"><Loader/></div>
+      </div>
+    </div>;
+
     if ( !this.state.stocks.length ) {
-      return <div className="container">Loading</div>;
+      return MyLoader;
     }
 
     return (
@@ -70,7 +79,7 @@ class TheGrid extends React.Component<any, GridState> {
           className="row"
           loadMore={ this.loadItems }
           hasMore={ this.state.isLastFetch }
-          loader={ <div className="loader" key={0} >Loading ...</div> }
+          loader={ <div style={{width:'100%'}} key={ 0 }>{MyLoader}</div> }
           useWindow={ true }>
           { this.state.stocks.map( ( stock, i ) => <TheGridItem stock={ stock } key={ i }/> ) }
         </InfiniteScroll>
