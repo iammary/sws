@@ -1,4 +1,3 @@
-export const API_URL   = 'https://simplywall.st/api/grid/filter?include=info%2Cscore';
 export const generateColor = ( score: number, opacity = 1 ) => {
   let red   = 255;
   let green = 255;

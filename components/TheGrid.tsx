@@ -1,12 +1,12 @@
 import * as React from 'react';
 import TheGridItem from './TheGridItem';
 import { GridState } from '../interfaces';
-import InfiniteScroll from 'react-infinite-scroller';
-import { API_URL } from '../utils';
+import * as InfiniteScroll from 'react-infinite-scroller';
 import Loader from './Loader';
+import fetch from 'unfetch';
 
-const __DEBUG__ = process.env.NODE_ENV === 'development';
 const SIZE      = 9;
+const API_URL = 'https://simplywall.st/api/grid/filter?include=info%2Cscore'
 
 class TheGrid extends React.Component<any, GridState> {
   state: GridState;
@@ -22,8 +22,6 @@ class TheGrid extends React.Component<any, GridState> {
   }
 
   public loadItems = () => {
-    __DEBUG__ && console.log( 'Fetching Data offset: %o', this.state.offset );
-
     fetch( API_URL, {
       method  : 'POST',
       headers : {
@@ -43,8 +41,6 @@ class TheGrid extends React.Component<any, GridState> {
         ]
       } )
     } ).then( r => r.json() ).then( res => {
-      __DEBUG__ && console.log( 'res: %o', res );
-
       const NEXT_OFFSET = this.state.offset + SIZE;
 
       this.setState( {
@@ -56,7 +52,10 @@ class TheGrid extends React.Component<any, GridState> {
   };
 
   public componentDidMount () {
-    this.loadItems();
+    try {
+      this.loadItems();
+    } catch ( error ) {
+    }
   }
 
   render () {
@@ -79,7 +78,7 @@ class TheGrid extends React.Component<any, GridState> {
           className="row"
           loadMore={ this.loadItems }
           hasMore={ this.state.isLastFetch }
-          loader={ <div style={{width:'100%'}} key={ 0 }>{MyLoader}</div> }
+          loader={ <div style={ { width : '100%' } } key={ 0 }>{ MyLoader }</div> }
           useWindow={ true }>
           { this.state.stocks.map( ( stock, i ) => <TheGridItem stock={ stock } key={ i }/> ) }
         </InfiniteScroll>

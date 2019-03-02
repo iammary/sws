@@ -7,7 +7,7 @@ export interface ScoreDataObejct {
   management: number,
   misc: number,
   total: number,
-  sentence: number
+  sentence: string
 }
 
 export interface InfoDataObejct {

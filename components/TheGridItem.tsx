@@ -2,10 +2,38 @@ import * as React from 'react';
 import StockObject from '../interfaces';
 import { Radar } from 'react-chartjs-2';
 import { generateColor } from '../utils';
-import { CHART_OPTIONS } from '../constants';
 import { StockBox, PeekDescription } from '../styles';
 
-const __DEBUG__ = process.env.NODE_ENV === 'development';
+const CHART_OPTIONS = {
+  elements   : {
+    point : {
+      radius : 0
+    }
+  },
+  legend     : {
+    display : false
+  },
+  angleLines : {
+    display : false
+  },
+  scale      : {
+    gridLines   : {
+      circular  : true,
+      color     : 'rgba(0, 0, 0, 0.1)',
+      lineWidth : 14
+    },
+    pointLabels : {
+      fontColor : '#FFFFFF',
+      fontSize  : 8
+    },
+    ticks       : {
+      display     : false,
+      beginAtZero : true,
+      max         : 6,
+      stepSize    : 2
+    }
+  }
+};
 
 interface IProps {
   stock: StockObject
@@ -17,8 +45,6 @@ class TheGridItem extends React.Component<IProps> {
     const { stock } = this.props;
     const score     = stock.score.data;
     const info      = stock.info.data;
-
-    __DEBUG__ && console.log( 'stock: %o', stock );
 
     return (
       <div className="col-lg-4 col-sm-6">

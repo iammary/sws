@@ -1,6 +1,7 @@
+import * as React from 'react';
 import ContentLoader from 'react-content-loader';
 
-const Loader = () => (
+const Loader: React.FunctionComponent<any> = () => (
   <ContentLoader
     height={200}
     width={150}
