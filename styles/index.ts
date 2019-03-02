@@ -146,3 +146,12 @@ export const PeekDescription = styled.div`
     font-size: 12px;
   }
 `;
+
+export const Footer = styled.footer`
+  border-top: 1px solid ${ theme.boxBg };
+  margin-top: 50px;
+  padding: 20px 0;
+  font-size: 12px;
+  text-align: center;
+  background: ${theme.bg}
+`;

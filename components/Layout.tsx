@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import { GlobalStyle, Header } from '../styles';
+import { GlobalStyle, Header, Footer } from '../styles';
 import { Normalize } from 'styled-normalize';
 
 type Props = {
@@ -24,10 +24,15 @@ const Layout: React.FunctionComponent<Props> = ( { children, title = 'The Grid |
       <Link href='/'><img src="/static/logo.png" alt="Simply Wall St logo"/></Link>
     </Header>
     { children }
-    <footer>
-      <hr/>
-      <span>I'm here to stay (Footer)</span>
-    </footer>
+    <Footer>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            ❤️ Submitted by Jes Anub
+          </div>
+        </div>
+      </div>
+    </Footer>
   </div>
 );
 
